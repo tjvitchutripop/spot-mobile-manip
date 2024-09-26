@@ -1,0 +1,26 @@
+<mujoco model="block_model">
+  <compiler angle="radian" />
+  
+  <visual>
+    <quality shadowsize="8192"/>
+    <global fovy="45"/>
+  </visual>
+
+  <asset>
+    <texture type="2d" name="block_texture" builtin="checker" width="512" height="512"
+             rgb1="0.8 0.2 0.2" rgb2="0.2 0.2 0.2" />
+    <material name="block_material" texture="block_texture" texuniform="true"/>
+  </asset>
+
+  <worldbody>
+    <!-- Define the block body -->
+    <body name="block" pos="2 0 1">
+      <!-- Geom defines the shape of the block -->
+      <geom name="block_geom" type="box" size="0.05 0.05 0.05" material="block_material" density="1000" />
+      
+      <!-- Optional: Add a joint if the block should be movable -->
+      <joint type="free" name="block_joint"/>
+    </body>
+  </worldbody>
+  
+</mujoco>
